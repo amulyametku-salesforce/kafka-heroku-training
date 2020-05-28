@@ -40,7 +40,7 @@ public class DemoResource {
   @Produces(MediaType.APPLICATION_JSON)
   @Timed
   public String addMessage(DemoMessage message) throws TimeoutException, ExecutionException {
-    Uninterruptibles.getUninterruptibly(producer.send(message.getMessage()), 20, TimeUnit.SECONDS);
+    Uninterruptibles.getUninterruptibly(producer.send("Amulya" + message.getMessage()), 20, TimeUnit.SECONDS);
     return format("received message: %s", message);
   }
 }
